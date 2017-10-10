@@ -91,8 +91,5 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'types',
     timestamps: false
   });
-  Types.associate = function(db) {
-   Types.belongsToMany(db.types, {through: 'type1',  as: "Types", otherkey:"type_1"});
-  };
   return Types;
 };

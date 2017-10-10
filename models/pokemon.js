@@ -1,8 +1,4 @@
 /* jshint indent: 2 */
-    // timestamps: false,
-    // createdAt: false,
-
-    // updatedAt: false,
 module.exports = function(sequelize, DataTypes) {
   var Pokemon = sequelize.define('pokemon', {
     id: {
@@ -73,11 +69,6 @@ module.exports = function(sequelize, DataTypes) {
 
   Pokemon.associate = function(models) {
     Pokemon.hasMany(models.movesets, {foreignKey: 'id'});
-    
-  };
-
-    Pokemon.associate = function(models) {
-    Pokemon.belongsToMany(models.types, {through: 'type1', as: "Types", otherkey:"type_1"});
   };
   return Pokemon;
 };

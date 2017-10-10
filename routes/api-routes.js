@@ -7,6 +7,7 @@
 
 // Requiring our models
 var db = require("../models");
+var api = require("../api/pokeconst")
 
 // Routes
 // =============================================================
@@ -30,15 +31,13 @@ module.exports = function(app) {
   app.get("/test2", function(req, res) {
     // findAll returns all entries for a table when used with no options
     db.pokemon.findAll({
-    include: [
-        {
-            model: db.types,
-            on: {
-                col1: db.sequelize.where(db.sequelize.col("pokemon.type_1"), "=", db.sequelize.col("types.type1")),
-                col2: db.sequelize.where(db.sequelize.col("pokemon.type_2"), "=", db.sequelize.col("types.type2"))
-            }
+      include: [{
+        model: db.types,
+        on: {
+          col1: db.sequelize.where(db.sequelize.col("pokemon.type_1"), "=", db.sequelize.col("types.type1")),
+          col2: db.sequelize.where(db.sequelize.col("pokemon.type_2"), "=", db.sequelize.col("types.type2"))
         }
-    ],
+      }],
       where: {
         type_1: "Grass",
         type_2: "Ghost"
@@ -49,18 +48,19 @@ module.exports = function(app) {
     });
   });
 
-    app.get("/test3", function(req, res) {
+
+  //THI will not work, returns a random Id
+  app.get("/", function(req, res) {
     // findAll returns all entries for a table when used with no options
+    var seed = Math.floor(Math.random() * 802) + 1;
     db.sequelize.query(`
       SELECT * FROM pokemon 
       JOIN movesets on pokemon.id = movesets.id
       JOIN types ON pokemon.type_1 = types.type1 AND pokemon.type_2 = types.type2
       WHERE pokemon.id = ?
-      `,
-      { replacements: ['1'], type: db.sequelize.QueryTypes.SELECT }
-     ).then(function(dbPokemon) {
-      // We have access to the todos as an argument inside of the callback function
-      res.json(dbPokemon);
+      `, { replacements: [seed], type: db.sequelize.QueryTypes.SELECT }).then(function(dbPokemon) {
+        var newPokemon = new api(dbPokemon);
+        console.log(newPokemon);
     });
   });
 
@@ -71,7 +71,7 @@ module.exports = function(app) {
     // and complete property (req.body)
     db.Todo.create({
         text: req.body.text,
-        complete: req.body.complete    
+        complete: req.body.complete
       }).then(function(dbTodo) {
         // We have access to the new todo as an argument inside of the callback function
         res.json(dbTodo);
