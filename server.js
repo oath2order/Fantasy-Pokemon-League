@@ -24,9 +24,18 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Static directory
 app.use(express.static("public"));
 
+// Override with POST having ?_method=DELETE
+app.use(methodOverride("_method"));
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // Routes
 // =============================================================
-require("./routes/api-routes.js")(app);
+var routes = require("./routes/api-routes.js")(app);
+// On every route, use the routes middleware
+app.use(routes);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
