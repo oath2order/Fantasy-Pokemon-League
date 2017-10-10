@@ -6,6 +6,7 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
 
 // Sets up the Express App
 // =============================================================
@@ -33,9 +34,9 @@ app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
-var routes = require("./routes/api-routes.js")(app);
+require("./routes/api-routes.js")(app);
 // On every route, use the routes middleware
-app.use(routes);
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
