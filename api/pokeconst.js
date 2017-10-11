@@ -1,7 +1,6 @@
 var db = require("../models");
 
 module.exports = function(pokemon) {
-  console.log(pokemon[0])
   this.id = pokemon[0].id;
   this.name = pokemon[0].name;
   this.type_1 = pokemon[0].type_1;
@@ -34,25 +33,20 @@ module.exports = function(pokemon) {
     steel: pokemon[0].steel,
     fairy: pokemon[0].fairy
   };
-  //THIS WILL NOT WORK reason is that I cannot figure out how to escape the qoutes
   this.moveFinder = function() {
     var moveId = "move";
-    console.log(moveId);
     moveId += (Math.floor(Math.random() * 64) + 1);
-    db.sequelize.query(`
-      SELECT :move, type, category, power FROM movesets 
-      left join moves on movesets.:move = moves.move
-      where species = :name;
-      `, { replacements: { move: moveId, name: this.name }, type: db.sequelize.QueryTypes.SELECT }).then(function(moves) {
-      console.log("test")
-      console.log(moves);
+    query = "SELECT " + moveId + ", type, category, power FROM movesets ";
+    query += "left join moves on movesets." + moveId + " = moves.move where species = '" + this.name + "'";
+    db.sequelize.query({ query, type: db.sequelize.QueryTypes.SELECT }).then(function(moves){
+       return moves[0][0];
     });
   }
   this.moves = {
     move_1: this.moveFinder(),
-    move_2: {},
-    move_3: {},
-    move_4: {}
+    move_2: this.moveFinder(),
+    move_3: this.moveFinder(),
+    move_4: this.moveFinder()
   }
 }
 
