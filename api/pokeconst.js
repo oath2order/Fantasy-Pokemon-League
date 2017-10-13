@@ -1,6 +1,6 @@
 var db = require("../models");
 
-module.exports = function(pokemon) {
+module.exports = function(pokemon, moves) {
   this.id = pokemon[0].id;
   this.name = pokemon[0].name;
   this.type_1 = pokemon[0].type_1;
@@ -33,24 +33,17 @@ module.exports = function(pokemon) {
     steel: pokemon[0].steel,
     fairy: pokemon[0].fairy
   };
-  this.moveFinder = function() {
-    var moveId = "move";
-    moveId += (Math.floor(Math.random() * 64) + 1);
-    query = "SELECT " + moveId + ", type, category, power FROM movesets ";
-    query += "left join moves on movesets." + moveId + " = moves.move where species = '" + this.name + "'";
-    db.sequelize.query({ query, type: db.sequelize.QueryTypes.SELECT }).then(function(moves){
-       return moves[0][0];
-    });
-  }
-  this.moves = {
-    move_1: this.moveFinder(),
-    move_2: this.moveFinder(),
-    move_3: this.moveFinder(),
-    move_4: this.moveFinder()
-  }
+  // this.moveFinder = function() {
+  //     var moveId = "move";
+  //     moveId += (Math.floor(Math.random() * 64) + 1);
+  //     query = "SELECT " + moveId + ", type, category, power FROM movesets ";
+  //     query += "left join moves on movesets." + moveId + " = moves.move where species = '" + this.name + "'";
+  //     db.sequelize.query({ query, type: db.sequelize.QueryTypes.SELECT }).then(function(moves){
+  //        return moves[0][0];
+  //     });
+  // }
+  this.moves = moves;
 }
-
-
 // this.fullText = fullText;
 // this.cloze = cloze;
 // this.removeCloze = function() {
