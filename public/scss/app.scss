@@ -1,0 +1,13 @@
+/***************
+to install sass: 
+sudo gem install sass 
+***********************
+every time a change is made in this file, this command must be ran (from the public folder):
+sass scss/app.scss css/app.css
+*****************/
+
+$white: #333;
+
+h1 {
+	color: $white;
+}
