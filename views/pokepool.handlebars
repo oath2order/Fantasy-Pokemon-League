@@ -1,23 +1,47 @@
 <template id="pokepool-template">
     <div class="row">
-        <div class="col s8">
-            {{#each pokePool}}
-            <div class="col s3">
+        <div class="col l3 m12 s12 teams">
+            <div class="collection red-text text-darken-2 teamList">
+                <a class="collection-item team-0">Team 1</a>
+                <a class="collection-item team-1">Team 2</a>
+                <a class="collection-item team-2">Team 3</a>
+                <a class="collection-item team-3">Team 4</a>
+            </div>
+            <div class="draftStatus">
+                <p> Game Notes:
+                    <p>
+                        <p>1. Each player will take turns drafting one Pokémon at a time to their team.</p>
+                        <p>2. Click "Draft" Pokémon's card to add them to your team. Click the three dots to see their stats.</p>
+                        <p>3. Once all four teams are made, the battle begins, and only one winner will remain!</p>
+                        <a class="waves-effect waves-light red darken-2 btn start"><i class="material-icons left">play_circle_outline</i>Begin Draft</a>
+            </div>
+            <div class="teamPicks">
+            </div>
+        </div>
+        <div class="col l9 m12 pokepool">
+            <div class="col l2 m3 s4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="https://cdn.bulbagarden.net/upload/4/43/043Oddish.png">
+                        <img class="pokepic" src="https://img.pokemondb.net/artwork/{{name}}.jpg">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{name}}<i class="material-icons right">more_vert</i></span>
-                        <p><a href="#">Draft to team</a></p>
+                        <span class="card-title activator flow-text grey-text text-darken-4">{{name}}<i class="material-icons flow-text right">more_vert</i>
+                </span>
+                        <p><a href="#">Draft</a></p>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{name}}<i class="material-icons right">close</i></span>
-                        <p>Here is some more information about this pokemon.</p>
+                        <span class="card-title flow-text grey-text text-darken-4">{{name}}<i class="material-icons right">close</i></span>
+                        <p>Type:
+                            <br> HP:
+                            <br> Attack:
+                            <br> Defense:
+                            <br> Special Defense:
+                            <br> Special Attack:
+                            <br> Total:
+                            <br> Dexterity:
+                            <br> Mod: </p>
                     </div>
                 </div>
             </div>
-            {{/each}}
         </div>
-    </div>
 </template>
