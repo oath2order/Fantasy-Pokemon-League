@@ -30,7 +30,12 @@ module.exports = function(sequelize, DataTypes) {
     priority: {
       type: DataTypes.INTEGER(11),
       allowNull: true
-    }
+    },
+    priority: {
+      type: DataTypes.BOOLEAN(),
+      allowNull: false,
+      default: 0
+    }    
   }, {
     tableName: 'moves',
     timestamps: false

@@ -33,26 +33,16 @@ module.exports = function(pokemon, moves) {
     steel: pokemon[0].steel,
     fairy: pokemon[0].fairy
   };
-  // this.moveFinder = function() {
-  //     var moveId = "move";
-  //     moveId += (Math.floor(Math.random() * 64) + 1);
-  //     query = "SELECT " + moveId + ", type, category, power FROM movesets ";
-  //     query += "left join moves on movesets." + moveId + " = moves.move where species = '" + this.name + "'";
-  //     db.sequelize.query({ query, type: db.sequelize.QueryTypes.SELECT }).then(function(moves){
-  //        return moves[0][0];
-  //     });
-  // }
-  this.moves = moves;
+  this.moveFinder = function() {
+    var finalMoveset = [];
+    for (var i = 0; i < 4; i++) {
+      var seed = Math.floor(Math.random() * moves.length);
+      console.log(moves.length);
+       console.log(seed);
+      console.log(moves[i]);
+      finalMoveset.push(moves.splice(seed, 1));
+    }
+      return finalMoveset;
+  };
+  this.moves = this.moveFinder();
 }
-// this.fullText = fullText;
-// this.cloze = cloze;
-// this.removeCloze = function() {
-//   var newString = "";
-//   if (this.fullText.indexOf(this.cloze) != -1) {
-//     newString = this.fullText.replace(cloze, ' ... ');
-//     return newString;
-//   } else {
-//     newString = "Error! Not a valid Cloze card!";
-//     return newString;
-//   }
-// };
