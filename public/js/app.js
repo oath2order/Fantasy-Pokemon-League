@@ -10,7 +10,7 @@ $('#start-button').click(function() {
 
 //render 24 pokeballs
 $(document).ready(function() {
-    var pokes = ["pikachu", "jigglypuff", "squirtle", "vulpix", "charmander", "oddish", "bulbasaur", "weedle", "zubat", "charizard", "psyduck", "machop", "bellsprout", "slowbro", "muk", "drowzee", "krabby", "koffing", "jynx", "lapras", "ditto", "snorlax", "mewtwo", "pichu"]
+    var pokes = ["pikachu", "jigglypuff", "squirtle", "vulpix", "charmander", "oddish", "bulbasaur", "weedle", "zubat", "charizard", "psyduck", "machop", "bellsprout", "slowbro", "mimikyu", "drowzee", "krabby", "koffing", "bewear", "lapras", "ditto", "snorlax", "mewtwo", "pichu"]
 
     for (var i = 0; i < pokes.length; i++) {
         $('.pokepool').append('<div class="col l2 m3 s4"> <div class="card"> <div class="card-image waves-effect waves-block waves-light"><img class="pokepic pokepic-' + pokes[i] + '" src="https://img.pokemondb.net/artwork/' + pokes[i] + '.jpg" alt-src="../public/images/Pokeball.png"></div>' +
@@ -19,7 +19,24 @@ $(document).ready(function() {
             '<p>Type: <br> HP: <br> Attack: <br> Defense: <br> Special Defense: <br> Special Attack: <br> Total: <br> Dexterity: <br> Mod: </p></div></div>');
     }
 
-    teams = ["team1", "Team2", "team3", "team4"];
+    teams = [{
+            "name": "team1",
+            "pokemon": []
+        },
+        {
+            "name": "team2",
+            "pokemon": []
+        },
+        {
+            "name": "team3",
+            "pokemon": []
+        },
+        {
+            "name": "team4",
+            "pokemon": []
+        }
+    ];
+
     currentlyDrafting = 0;
     gameStart = false;
 
@@ -30,30 +47,30 @@ $(document).ready(function() {
     });
 
     $("body").on("click", ".draftLink", function() {
-        draftPoke(this.id);
+        draftPoke(currentlyDrafting, this.id);
     });
 });
 
 
 var nextDraftTeam = function(teamNumber) {
-	// teamPicks = ["jigglypuff", "oddish"];
- //    $(".teamPicks").html("");
- //    for (var i = 0; i < teamPicks.length; i++) {
- //        $(".teamPicks").append('<img src="https://img.pokemondb.net/artwork/' + teamPicks[i] + '.jpg"</img>');
- //    }
+    // teamPicks = ["jigglypuff", "oddish"];
+    //    $(".teamPicks").html("");
+    //    for (var i = 0; i < teamPicks.length; i++) {
+    //        $(".teamPicks").append('<img src="https://img.pokemondb.net/artwork/' + teamPicks[i] + '.jpg"</img>');
+    //    }
     $(".team-" + teamNumber + "").addClass("active");
     $(".team-" + (teamNumber - 1) + "").removeClass("active");
     $(".start").hide();
-    $(".draftStatus").html("<p>Now Drafing: " + teams[teamNumber] + "</p><p> Next Up: " + teams[teamNumber + 1] + "</p>");
+    $(".draftStatus").html("<p>Now Drafting: " + teams[teamNumber].name + "</p><p> Next Up: " + teams[teamNumber + 1].name + "</p>");
     currentlyDrafting++;
 }
 
-var draftPoke = function(pokeName) {
+var draftPoke = function(teamNumber, pokeName) {
     $(".teamPicks").append('<img src="https://img.pokemondb.net/artwork/' + pokeName + '.jpg"</img>');
     var pokeBallURL = $(".pokepic-" + pokeName + "").attr("alt-src");
     var pokePicURL = $(".pokepic-" + pokeName + "").attr("src");
     $(".pokepic-" + pokeName + "").attr("alt-src", pokePicURL);
     $(".pokepic-" + pokeName + "").attr("src", pokeBallURL);
-    nextDraftTeam(1);
-
+    teams[teamNumber].pokemon.push();
+    nextDraftTeam();
 }
