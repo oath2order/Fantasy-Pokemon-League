@@ -1,0 +1,77 @@
+@font-face {
+    font-family: PokemonHollow;
+    src: url(../fonts/PokemonHollow.ttf);
+}
+
+h1 {
+    font-family: PokemonHollow;
+    background-color: #f44336;
+    height: 95px;
+    font-style: bold;
+    border: solid 4px black;
+    border-radius: 10px;
+}
+
+
+body {
+    background-color: #3947b4;
+}
+
+h2 {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.userName {
+    margin-top: 10px;
+    background-color: #fee737;
+    border: solid 4px black;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 100%;
+}
+
+#pokeball {
+    max-height: 50px;
+}
+
+.pokeball_2 {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+    max-height: 50px;
+}
+
+.activePokemon {
+    display: block;
+    margin: auto;
+    padding-top: 10px;
+    border: solid 6px black;
+    border-radius: 10px;
+    width: 100%;
+    background-color: white;
+}
+
+.activeImg {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+}
+
+.progress {
+    background-color: white;
+    height: 35px;
+    border: solid 4px black;
+    border-radius: 10px;
+}
