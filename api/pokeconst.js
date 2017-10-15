@@ -1,7 +1,6 @@
 var db = require("../models");
 
-module.exports = function(pokemon) {
-  console.log(pokemon[0])
+module.exports = function(pokemon, moves) {
   this.id = pokemon[0].id;
   this.name = pokemon[0].name;
   this.type_1 = pokemon[0].type_1;
@@ -34,38 +33,16 @@ module.exports = function(pokemon) {
     steel: pokemon[0].steel,
     fairy: pokemon[0].fairy
   };
-  //THIS WILL NOT WORK reason is that I cannot figure out how to escape the qoutes
   this.moveFinder = function() {
-    var moveId = "move";
-    console.log(moveId);
-    moveId += (Math.floor(Math.random() * 64) + 1);
-    db.sequelize.query(`
-      SELECT :move, type, category, power FROM movesets 
-      left join moves on movesets.:move = moves.move
-      where species = :name;
-      `, { replacements: { move: moveId, name: this.name }, type: db.sequelize.QueryTypes.SELECT }).then(function(moves) {
-      console.log("test")
-      console.log(moves);
-    });
-  }
-  this.moves = {
-    move_1: this.moveFinder(),
-    move_2: {},
-    move_3: {},
-    move_4: {}
-  }
+    var finalMoveset = [];
+    for (var i = 0; i < 4; i++) {
+      var seed = Math.floor(Math.random() * moves.length);
+      console.log(moves.length);
+       console.log(seed);
+      console.log(moves[i]);
+      finalMoveset.push(moves.splice(seed, 1));
+    }
+      return finalMoveset;
+  };
+  this.moves = this.moveFinder();
 }
-
-
-// this.fullText = fullText;
-// this.cloze = cloze;
-// this.removeCloze = function() {
-//   var newString = "";
-//   if (this.fullText.indexOf(this.cloze) != -1) {
-//     newString = this.fullText.replace(cloze, ' ... ');
-//     return newString;
-//   } else {
-//     newString = "Error! Not a valid Cloze card!";
-//     return newString;
-//   }
-// };

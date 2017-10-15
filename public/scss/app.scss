@@ -6,8 +6,13 @@ every time a change is made in this file, this command must be ran (from the pub
 sass scss/app.scss css/app.css
 *****************/
 
-$white: #333;
+$lightgold: #FEE737;
+$gold: #FADC00;
+$lightblue: #3947b4;
+$blue: #1728AC
+$darkblue: #0A156A;
+$red: #d50000;
 
 h1 {
-	color: $white;
+	color: $gold;
 }
