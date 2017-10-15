@@ -51,8 +51,11 @@ module.exports = function(app) {
     });
 
     app.get("/", function(req, res) {
-        // res.sendFile(path.join(__dirname, "../views/index.html"));
-        res.render("index", null);
+      //this loads up the static html file when the page is loaded
+        res.sendFile(path.join(__dirname, "../views/startPage.html"));
+
+        //uncomment this out to try to load the page with handlebars
+        // res.render("index",null);
     });
 
 
