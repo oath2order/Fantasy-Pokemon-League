@@ -2,7 +2,7 @@
     "development":
     {
         "username": "root",
-        "password": "",
+        "password": "Endless8!",
         "database": "pokemon_db",
         "host": "localhost",
         "dialect": "mysql"
@@ -10,7 +10,7 @@
     "production":
     {
         "username": "root",
-        "password": "",
+        "password": "Endless8!",
         "database": "pokemon_db",
         "host": "localhost",
         "dialect": "mysql"

@@ -17,16 +17,16 @@ var userState = {
 
 $('draftButton').click(function() {
 	gameStore.onDraft(this);
-}
+});
 
 var gameStore = {
 	draft: {
-		index: 0
+		index: 0,
 		limit: 4
 	},
 	teams: {
 		1: {
-			container: $(".teamPicks")
+			container: $(".teamPicks"),
 			name: null,
 			pokes: []
 		},
