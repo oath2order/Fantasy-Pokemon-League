@@ -2,17 +2,14 @@
     "development":
     {
         "username": "root",
-        "password": "Endless8!",
+        "password": "root",
         "database": "pokemon_db",
         "host": "localhost",
         "dialect": "mysql"
     },
     "production":
     {
-        "username": "root",
-        "password": "Endless8!",
-        "database": "pokemon_db",
-        "host": "localhost",
+        "use_env_variable": "JAWSDB_URL",
         "dialect": "mysql"
     }
 }
