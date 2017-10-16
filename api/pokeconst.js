@@ -5,33 +5,33 @@ module.exports = function(pokemon, moves) {
   this.name = pokemon[0].name;
   this.type_1 = pokemon[0].type_1;
   this.type_2 = pokemon[0].type_2;
-  this.hp = pokemon[0].hp;
-  this.atk = pokemon[0].attack;
-  this.def = pokemon[0].defense;
-  this.satk = pokemon[0].spec_attack;
-  this.sdef = pokemon[0].spec_defense;
-  this.spd = pokemon[0].speed;
+  this.hp = (pokemon[0].hp*2) + 110;
+  this.atk = (pokemon[0].attack*2) + 5;
+  this.def = (pokemon[0].defense*2) + 5;
+  this.satk = (pokemon[0].spec_attack*2) + 5;
+  this.sdef = (pokemon[0].spec_defense*2) + 5;
+  this.spd = (pokemon[0].speed*2) + 5;
   this.total = pokemon[0].total;
   this.dex = pokemon[0].dex_1;
   this.dmgMod = {
-    normal: pokemon[0].normal,
-    fire: pokemon[0].fire,
-    water: pokemon[0].water,
-    electric: pokemon[0].electric,
-    grass: pokemon[0].grass,
-    ice: pokemon[0].ice,
-    fighting: pokemon[0].fighting,
-    poison: pokemon[0].poison,
-    ground: pokemon[0].ground,
-    flying: pokemon[0].flying,
-    psychic: pokemon[0].psychic,
-    bug: pokemon[0].bug,
-    rock: pokemon[0].rock,
-    ghost: pokemon[0].ghost,
-    dragon: pokemon[0].dragon,
-    dark: pokemon[0].dark,
-    steel: pokemon[0].steel,
-    fairy: pokemon[0].fairy
+    Normal: pokemon[0].normal,
+    Fire: pokemon[0].fire,
+    Water: pokemon[0].water,
+    Electric: pokemon[0].electric,
+    Grass: pokemon[0].grass,
+    Ice: pokemon[0].ice,
+    Fighting: pokemon[0].fighting,
+    Poison: pokemon[0].poison,
+    Ground: pokemon[0].ground,
+    Flying: pokemon[0].flying,
+    Psychic: pokemon[0].psychic,
+    Bug: pokemon[0].bug,
+    Rock: pokemon[0].rock,
+    Ghost: pokemon[0].ghost,
+    Dragon: pokemon[0].dragon,
+    Dark: pokemon[0].dark,
+    Steel: pokemon[0].steel,
+    Fairy: pokemon[0].fairy
   };
   this.moveFinder = function() {
     var finalMoveset = [];

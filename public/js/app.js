@@ -5,8 +5,6 @@
     $('#app-frame').append(renderPokePool());
 
 
-$(document).ready(function() {
-
 $("#startGame-btn").click(function(){
 //there's an error on this one when you click the start button
     var template = document.getElementById('pokepool-template').innerHTML;
