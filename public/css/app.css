@@ -49,6 +49,8 @@ a {
 }
 
 .directions{
+    padding: 20px;
+    margin-bottom: 20px;
     color: white;
     background-color:#2196F3; 
 }
