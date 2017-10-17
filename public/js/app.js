@@ -1,8 +1,8 @@
 
 //this loads the draft page via handlebars (draft.handlebars is a partial and gets called in index.handlebars)
-    var template = document.getElementById('start-template').innerHTML;
-    var renderPokePool = Handlebars.compile(template);
-    $('#app-frame').append(renderPokePool());
+var template = document.getElementById('start-template').innerHTML;
+var renderPokePool = Handlebars.compile(template);
+$('#app-frame').append(renderPokePool());
 
 
 $(document).ready(function() {
@@ -12,7 +12,22 @@ $("#startGame-btn").click(function(){
     var template = document.getElementById('pokepool-template').innerHTML;
     var renderPokePool = Handlebars.compile(template);
     var potate = {name: "potato"};
-    document.getElementById('app-frame').innerHTML = renderPokePool(potate);
+    $('#app-frame').html(renderPokePool());
+
+    //document.getElementById('app-frame').innerHTML = renderPokePool(potate);
+});
+
+$("body").on("click", ".battle", function(){
+//there's an error on this one when you click the start button
+    var template = document.getElementById('battle').innerHTML;
+    //var renderPokePool = Handlebars.compile(template);
+    $('#app-frame').html(template);
+    $(".startButton").on("click", function() {
+        drawPokemon1(teams[0]);
+        drawPokemon2(teams[1]);
+        $(".startButtonDiv").html("");
+    });
+    //document.getElementById('app-frame').innerHTML = renderPokePool();
 });
 
 //js for start page starts here ------------------
@@ -125,7 +140,7 @@ $("#startGame-btn").click(function(){
         var pokePicURL = $(".pokepic-" + pokeName + "").attr("src");
         $(".pokepic-" + pokeName + "").attr("alt-src", pokePicURL);
         $(".pokepic-" + pokeName + "").attr("src", pokeBallURL);
-        if (teamNumber < 4) {
+        if (teamNumber < 3) {
             teamArray = teams[teamNumber].pokemon;
             teamArray.push(pokeName);
             nextDraftTeam(teamNumber);
@@ -158,7 +173,7 @@ var startGame = function(){
 
 //battle page logic-------------------
 //hardcode team just in case 
-var teams = [{
+var teams2 = [{
         "name": "Josh",
         "pokemon": ["pikachu", "celebi", "eevee", "charizard", "lugia", "mewtwo"]
     },
@@ -176,15 +191,6 @@ var teams = [{
     }
 ];
 
-
-//start game
-window.onload = function() {
-    $(".startButton").on("click", function() {
-        drawPokemon1(teams[0]);
-        drawPokemon2(teams[1]);
-        $(".startButtonDiv").html("");
-    });
-};
 
 //load pokemon
 function drawPokemon1(team1) {

@@ -58,5 +58,12 @@ module.exports = function(app) {
         res.render("index",null);
     });
 
+    app.get("/battle", function(req, res) {
+      //this loads up the static html file when the page is loaded
+        // res.sendFile(path.join(__dirname, "../views/startPage.html"));
+
+        //uncomment this out to try to load the page with handlebars
+        res.render("templates/battle",null);
+    });
 
 };
