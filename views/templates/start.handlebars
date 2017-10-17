@@ -1,0 +1,165 @@
+<template id="start-template">
+
+
+<div class="container">
+         <div class="row blue darken-3">
+            <h1 class="center-align yellow-text">Gotta Draft 'Em All</h1>
+        </div>
+        <div class="row">
+            <div class="center-align"><img src="../images/Pokeball.png" /></div>
+        </div>
+        <div class="row">
+            <h5 class="center-align blue white-text">Click on a player number to enter a name.</h3>
+        </div>
+
+        <!--Modal Triggers-->
+                <!--Modal Triggers to enter player one name-->
+        <div class="row">
+          <div class="col s3">
+            <div class="card transparent">
+              <div class="card-content white-text center-align">
+                <a href="#player1modal" class="btn-floating red btn-large modal-trigger">1</a>
+              </div>
+              <div class="card-action blue center-align white-text">
+                <p id="p1name-placeholder">Player 1</p>
+              </div>
+            </div>
+          </div>
+
+        <!--Modal Triggers to enter player two name-->
+          <div class="col s3">
+            <div class="card transparent">
+              <div class="card-content white-text center-align">
+                <a href="#player2modal" class="btn-floating red btn-large modal-trigger">2</a>
+              </div>
+              <div class="card-action blue center-align white-text">
+                <p id="p2name-placeholder">Player 2</p>
+              </div>
+            </div>
+          </div>
+
+        <!--Modal Triggers to enter player three name-->
+          <div class="col s3">
+            <div class="card transparent">
+              <div class="card-content white-text center-align">
+                <a href="#player3modal" class="btn-floating red btn-large modal-trigger">3</a>
+              </div>
+              <div class="card-action blue center-align white-text">
+                <p id="p3name-placeholder">Player 3</p>
+              </div>
+            </div>
+          </div>
+
+        <!--Modal Triggers to enter player four name-->
+          <div class="col s3">
+            <div class="card transparent">
+              <div class="card-content white-text center-align">
+                <a href="#player4modal" class="btn-floating red btn-large modal-trigger">4</a>
+              </div>
+              <div class="card-action blue center-align white-text">
+                <p id="p4name-placeholder">Player 4</p>
+              </div>
+            </div>
+          </div>
+
+
+          </div>
+
+  <!-- Modal Structure Player 1-->
+  <div id="player1modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Enter your name</h4>
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="playerOneName">Name</label>
+        </div>
+            
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPlayer1Name" placeholder="Player One Name"/>
+        </div>
+      </form>
+    </div>
+    
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat " id="add-player1-name-btn">Enter</a>
+    </div>
+  </div>
+
+  <!-- Modal Structure Player 2-->
+  <div id="player2modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Enter your name</h4>
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="playerTwoName">Name</label>
+        </div>
+            
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPlayer2Name" placeholder="Player Two Name"/>
+        </div>
+      </form>
+    </div>
+    
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat " id="add-player2-name-btn">Enter</a>
+    </div>
+  </div>
+
+  <!-- Modal Structure Player 3-->
+  <div id="player3modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Enter your name</h4>
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="playerThreeName">Name</label>
+        </div>
+            
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPlayer3Name" placeholder="Player Three Name"/>
+        </div>
+      </form>
+    </div>
+    
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat " id="add-player3-name-btn">Enter</a>
+    </div>
+  </div>
+
+  <!-- Modal Structure Player 4-->
+  <div id="player4modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Enter your name</h4>
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="playerFourName">Name</label>
+        </div>
+            
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPlayer4Name" placeholder="Player Four Name"/>
+        </div>
+      </form>
+    </div>
+    
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat " id="add-player4-name-btn">Enter</a>
+    </div>
+  </div>
+
+
+        <!--Button to start the game-->
+        <div class="row center-align">
+          <button Class="btn-large waves-effect waves-light blue center-align" id="startGame-btn">Start</button>
+        </div>
+
+      </div><!--container close-->
+
+      <footer class="footer">
+        <div class="footer-copyright">
+          <div class="container red white-text">
+          © 2017 Gotta Draft Them All
+          </div>
+        </div>
+      </footer>
+      <div id="pokepool">
+      </div>
+  </template>
