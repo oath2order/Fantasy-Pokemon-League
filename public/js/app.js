@@ -25,6 +25,7 @@ $(document).ready(function() {
             drawPokemon1(teams[0]);
             drawPokemon2(teams[1]);
             $(".startButtonDiv").html("");
+            setTimeout(setHpPokemon2(87), 2000);
         });
         //document.getElementById('app-frame').innerHTML = renderPokePool();
     });
@@ -110,13 +111,13 @@ $(document).ready(function() {
         if (draftNumber < 23) {
             draftNumber++
         } else {
-            $(".pokepool").html('<a class="waves-effect waves-light red darken-2 btn battle"><i class="material-icons left">play_circle_outline</i>Begin Battle</a>');
+            $(".pokepool").html('<div><a class="waves-effect waves-light red darken-2 btn battle"><i class="material-icons left">play_circle_outline</i>Begin Battle</a></div>');
         }
         console.log(draftNumber);
     }
 
     var changeToPokeball = function(pokeName) {
-        $(".teamPicks").append('<img src="https://img.pokemondb.net/artwork/' + pokeName + '.jpg"</img>');
+        // $(".teamPicks").append('<img src="https://img.pokemondb.net/artwork/' + pokeName + '.jpg"</img>');
         var pokeBallURL = $(".pokepic-" + pokeName + "").attr("alt-src");
         var pokePicURL = $(".pokepic-" + pokeName + "").attr("src");
         $(".pokepic-" + pokeName + "").attr("alt-src", pokePicURL);
@@ -227,3 +228,5 @@ function setHpPokemon1(HP) {
 function setHpPokemon2(HP) {
     $(".forProgress_2").html('<div class="progress"><div class="determinate red" style="width:' + HP + '%"></div></div>');
 }
+
+
