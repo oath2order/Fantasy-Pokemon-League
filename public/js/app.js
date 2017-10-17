@@ -12,6 +12,10 @@ $(document).ready(function() {
         var renderPokePool = Handlebars.compile(template);
         var potate = { name: "potato" };
         $('#app-frame').html(renderPokePool());
+        $('.team-0').text(teams[0].name);
+        $('.team-1').text(teams[1].name);
+        $('.team-2').text(teams[2].name);
+        $('.team-3').text(teams[3].name);
 
         //document.getElementById('app-frame').innerHTML = renderPokePool(potate);
     });
@@ -25,7 +29,7 @@ $(document).ready(function() {
             drawPokemon1(teams[0]);
             drawPokemon2(teams[1]);
             $(".startButtonDiv").html("");
-            setTimeout(setHpPokemon2(87), 2000);
+
         });
         //document.getElementById('app-frame').innerHTML = renderPokePool();
     });
