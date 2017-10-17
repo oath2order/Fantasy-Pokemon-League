@@ -1,12 +1,16 @@
 @font-face {
-  font-family: PokemonHollow;
-  src: url(./PokemonHollow.ttf);
+    font-family: PokemonHollow;
+    src: url(./PokemonHollow.ttf);
 }
 
 h1 {
-  font-family: PokemonHollow;
+    font-family: PokemonHollow;
 }
 
 .modal {
-  height: 250px !important;
+    height: 250px !important;
+}
+
+body {
+    background-image: url(../images/grass.jpg)
 }

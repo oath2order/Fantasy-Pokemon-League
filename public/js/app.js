@@ -1,4 +1,3 @@
-
 //this loads the draft page via handlebars (draft.handlebars is a partial and gets called in index.handlebars)
 var template = document.getElementById('start-template').innerHTML;
 var renderPokePool = Handlebars.compile(template);
@@ -7,32 +6,32 @@ $('#app-frame').append(renderPokePool());
 
 $(document).ready(function() {
 
-$("#startGame-btn").click(function(){
-//there's an error on this one when you click the start button
-    var template = document.getElementById('pokepool-template').innerHTML;
-    var renderPokePool = Handlebars.compile(template);
-    var potate = {name: "potato"};
-    $('#app-frame').html(renderPokePool());
+    $("#startGame-btn").click(function() {
+        //there's an error on this one when you click the start button
+        var template = document.getElementById('pokepool-template').innerHTML;
+        var renderPokePool = Handlebars.compile(template);
+        var potate = { name: "potato" };
+        $('#app-frame').html(renderPokePool());
 
-    //document.getElementById('app-frame').innerHTML = renderPokePool(potate);
-});
-
-$("body").on("click", ".battle", function(){
-//there's an error on this one when you click the start button
-    var template = document.getElementById('battle').innerHTML;
-    //var renderPokePool = Handlebars.compile(template);
-    $('#app-frame').html(template);
-    $(".startButton").on("click", function() {
-        drawPokemon1(teams[0]);
-        drawPokemon2(teams[1]);
-        $(".startButtonDiv").html("");
+        //document.getElementById('app-frame').innerHTML = renderPokePool(potate);
     });
-    //document.getElementById('app-frame').innerHTML = renderPokePool();
-});
 
-//js for start page starts here ------------------
+    $("body").on("click", ".battle", function() {
+        //there's an error on this one when you click the start button
+        var template = document.getElementById('battle').innerHTML;
+        //var renderPokePool = Handlebars.compile(template);
+        $('#app-frame').html(template);
+        $(".startButton").on("click", function() {
+            drawPokemon1(teams[0]);
+            drawPokemon2(teams[1]);
+            $(".startButtonDiv").html("");
+        });
+        //document.getElementById('app-frame').innerHTML = renderPokePool();
+    });
 
-//initialize object to send to battle page
+    //js for start page starts here ------------------
+
+    //initialize object to send to battle page
     var teams = [{
             "name": "Team 1",
             "pokemon": []
@@ -86,16 +85,16 @@ $("body").on("click", ".battle", function(){
         $("#p4name-placeholder").replaceWith(p4name);
         teams[3].name = p4name;
     });
-//end start page logic -----------------------------
+    //end start page logic -----------------------------
 
-//draft page js ------------------------------
+    //draft page js ------------------------------
 
 
     currentlyDrafting = 0;
     gameStart = false;
     draftNumber = 0;
 
-    $("body").on("click",".start", function() {
+    $("body").on("click", ".start", function() {
         console.log('potate')
         startGame();
         gameStart = true;
@@ -108,7 +107,7 @@ $("body").on("click", ".battle", function(){
     });
 
 
-//sets up the screen once a poke gets drafted -- highlights next team and changes status div
+    //sets up the screen once a poke gets drafted -- highlights next team and changes status div
     var nextDraftTeam = function(teamNumber) {
         $(".team-" + teamNumber + "").addClass("active");
         if (teamNumber === 0) {
@@ -133,7 +132,7 @@ $("body").on("click", ".battle", function(){
         }
     }
 
-//moves pokes from draft spot to team spot and replaces drafted pokes with poke ball
+    //moves pokes from draft spot to team spot and replaces drafted pokes with poke ball
     var draftPoke = function(teamNumber, pokeName, teamObj) {
         $(".teamPicks").append('<img src="https://img.pokemondb.net/artwork/' + pokeName + '.jpg"</img>');
         var pokeBallURL = $(".pokepic-" + pokeName + "").attr("alt-src");
@@ -149,26 +148,26 @@ $("body").on("click", ".battle", function(){
             teamArray.push(pokeName);
             nextDraftTeam(0);
         }
-        
-    if (draftNumber < 23 ) {
-        draftNumber++
-    } else {
-    $(".pokepool").html('<a class="waves-effect waves-light red darken-2 btn battle"><i class="material-icons left">play_circle_outline</i>Begin Battle</a>');
 
-    }
-};
+        if (draftNumber < 23) {
+            draftNumber++
+        } else {
+            $(".pokepool").html('<a class="waves-effect waves-light red darken-2 btn battle"><i class="material-icons left">play_circle_outline</i>Begin Battle</a>');
 
-//render the pokes initially
-var startGame = function(){
+        }
+    };
+
+    //render the pokes initially
+    var startGame = function() {
         var pokes = ["pikachu", "jigglypuff", "squirtle", "vulpix", "charmander", "oddish", "bulbasaur", "weedle", "zubat", "charizard", "psyduck", "machop", "bellsprout", "slowbro", "mimikyu", "drowzee", "krabby", "koffing", "bewear", "lapras", "ditto", "snorlax", "mewtwo", "pichu"]
-//append pokes to draft screen
-    for (var i = 0; i < pokes.length; i++) {
-        $('.pokepool').append('<div class="col l2 m3 s4"> <div class="card"> <div class="card-image waves-effect waves-block waves-light"><img class="pokepic pokepic-' + pokes[i] + '" src="https://img.pokemondb.net/artwork/' + pokes[i] + '.jpg" alt-src="images/Pokeball.png"></div>' +
-            '<div class="card-content"><span class="card-title activator flow-text grey-text text-darken-4">' + pokes[i] + '<i class="material-icons flow-text right">more_vert</i></span><p class="draftLink" id="' + pokes[i] + '"><a>Draft</a></p>' +
-            '</div><div class="card-reveal"><span class="card-title flow-text grey-text text-darken-4">' + pokes[i] + '<i class="material-icons right">close</i></span>' +
-            '<p>Type: <br> HP: <br> Attack: <br> Defense: <br> Special Defense: <br> Special Attack: <br> Total: <br> Dexterity: <br> Mod: </p></div></div>');
+        //append pokes to draft screen
+        for (var i = 0; i < pokes.length; i++) {
+            $('.pokepool').append('<div class="col l2 m3 s4"> <div class="card"> <div class="card-image waves-effect waves-block waves-light"><img class="pokepic pokepic-' + pokes[i] + '" src="https://img.pokemondb.net/artwork/' + pokes[i] + '.jpg" alt-src="images/Pokeball.png"></div>' +
+                '<div class="card-content"><span class="card-title activator flow-text grey-text text-darken-4">' + pokes[i] + '<i class="material-icons flow-text right">more_vert</i></span><p class="draftLink" id="' + pokes[i] + '"><a>Draft</a></p>' +
+                '</div><div class="card-reveal"><span class="card-title flow-text grey-text text-darken-4">' + pokes[i] + '<i class="material-icons right">close</i></span>' +
+                '<p>Type: <br> HP: <br> Attack: <br> Defense: <br> Special Defense: <br> Special Attack: <br> Total: <br> Dexterity: <br> Mod: </p></div></div>');
+        }
     }
-}
 });
 
 //battle page logic-------------------
@@ -201,7 +200,7 @@ function drawPokemon1(team1) {
     //pokeballs for 'to fight'
     $(".pokeball_1").html("");
     for (var i = 1; i < team1.pokemon.length; i++) {
-        $(".pokeball_1").append('<img id="pokeball" src="./assets/images/Pokeball.png">');
+        $(".pokeball_1").append('<img id="pokeballUpNext" src="../images/Pokeball.png">');
     }
 
     //hp bar at start
@@ -218,7 +217,7 @@ function drawPokemon2(team2) {
     //pokeballs for 'to fight'
     $(".pokeball_2").html("");
     for (var i = 1; i < team2.pokemon.length; i++) {
-        $(".pokeball_2").append('<img id="pokeball" src="./assets/images/Pokeball.png">');
+        $(".pokeball_2").append('<img id="pokeballUpNext" src="../images/Pokeball.png">');
     }
     //hp bar at start
     setHpPokemon2(100);
@@ -234,4 +233,3 @@ function setHpPokemon1(HP) {
 function setHpPokemon2(HP) {
     $(".forProgress_2").html('<div class="progress"><div class="determinate red" style="width:' + HP + '%"></div></div>');
 }
-
