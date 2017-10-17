@@ -1,4 +1,3 @@
-
 /*draft page*/
 
 .card .card-reveal .card-title {
@@ -19,6 +18,7 @@
 
 body {
     background-color: #ffc107;
+    background-image: url(../images/grass.jpg);
 }
 
 a {
@@ -48,6 +48,11 @@ a {
     cursor: pointer;
 }
 
+.directions{
+    color: white;
+    background-color:#2196F3; 
+}
+
 .teamPicks img {
     margin: 10px;
     height: 80px;
@@ -73,10 +78,18 @@ a {
 }
 
 
+
+
+
+
+
+
+
 /*start page*/
+
 @font-face {
     font-family: PokemonHollow;
-    src: url(./PokemonHollow.ttf);
+    src: url(../fonts/PokemonHollow.ttf);
 }
 
 h1 {
@@ -88,8 +101,28 @@ h1 {
 }
 
 
+
+
+
+
+
+
+
+
+
+
 /*battle page*/
-.container {
+
+.PokemonBattleTitle {
+    font-family: PokemonHollow;
+    background-color: #f44336;
+    height: 95px;
+    font-style: bold;
+    border: solid 4px black;
+    border-radius: 10px;
+}
+
+.battle_body {
     background-color: #3947b4;
 }
 
@@ -108,7 +141,7 @@ h2 {
     max-width: 100%;
 }
 
-#pokeball {
+#pokeballUpNext {
     max-height: 50px;
 }
 
