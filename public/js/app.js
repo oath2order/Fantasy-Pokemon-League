@@ -150,7 +150,7 @@ $("body").on("click", ".battle", function(){
             nextDraftTeam(0);
         }
         
-    if (draftNumber < 2 ) {
+    if (draftNumber < 23 ) {
         draftNumber++
     } else {
     $(".pokepool").html('<a class="waves-effect waves-light red darken-2 btn battle"><i class="material-icons left">play_circle_outline</i>Begin Battle</a>');
